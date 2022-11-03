@@ -1,5 +1,6 @@
-const board = document.querySelector('#board')
+const board = document.querySelector('#board');
 
+//Creates div elements 
 function createDivs(row,col) {
   for(let i = 0; i < (row * col); i++) {
     const div = document.createElement('div');
