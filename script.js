@@ -5,6 +5,9 @@ let color = 'black';
 
 //Creates div elements and has hover feature
 function createDivs(row,col) {
+  let board = document.querySelector('#board')
+  let squares = board.querySelectorAll('div')
+  squares.forEach((div) => div.remove()); 
   for(let i = 0; i < (row * col); i++) {
     let div = document.createElement('div');
     div.addEventListener('mouseover', colorDiv);
@@ -30,7 +33,9 @@ function colorChoice(choice) {
 }
 
 function clearBoard() {
-
+  let board = document.querySelector('#board')
+  let squares = board.querySelectorAll('div')
+  squares.forEach((div) => div.style.backgroundColor = 'white'); 
 }
 
 createDivs(30,30)
