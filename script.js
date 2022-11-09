@@ -4,19 +4,20 @@ let color = 'black';
 
 
 //Creates div elements and has hover feature
-function createDivs(row,col) {
+function createDivs(size) {
   let board = document.querySelector('#board')
   let squares = board.querySelectorAll('div')
   squares.forEach((div) => div.remove()); 
-  for(let i = 0; i < (row * col); i++) {
+
+  let amount = size * size
+  for(let i = 0; i < amount; i++) {
     let div = document.createElement('div');
     div.addEventListener('mouseover', colorDiv);
-    board.style.gridTemplateRows = `repeat(${row}, 1fr)`;
-    board.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
+    board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+    board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     board.appendChild(div).classList.add('box');
   }
 }
-createDivs(30,30)
 
 //changes the color of each cell
 function colorDiv() {
@@ -36,6 +37,10 @@ function clearBoard() {
   let board = document.querySelector('#board')
   let squares = board.querySelectorAll('div')
   squares.forEach((div) => div.style.backgroundColor = 'white'); 
+}
+
+function changeSize(input) {
+  createDivs(input);
 }
 
 createDivs(30,30)
