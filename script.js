@@ -1,7 +1,7 @@
 //Global variables
 const board = document.querySelector('#board');
 let color = 'black';
-let click = true;
+//let click = true;
 
 //Creates div elements and has hover feature
 function createDivs(size) {
@@ -21,12 +21,10 @@ function createDivs(size) {
 
 //changes the color of each cell
 function colorDiv() {
-  if(click) {
-    if(color === 'random') {
-      this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-    } else {
-      this.style.backgroundColor = color;
-    }
+  if(color === 'random') {
+    this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+  }else {
+    this.style.backgroundColor = color;
   }
 }
 //changes the color
@@ -44,6 +42,4 @@ function changeSize(input) {
   createDivs(input);
 }
 
-document.querySelector("body").addEventListener("click", () => {
-  click = !click;
-});
+createDivs(16)
